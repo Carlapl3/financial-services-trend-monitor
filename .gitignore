@@ -1,0 +1,73 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+virtualenv/
+
+# Environment variables (secrets)
+.env
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data outputs (v1 storage)
+data/*.jsonl
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Logs
+logs/*.jsonl
+logs/*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Playwright (if used)
+playwright/.auth/
+data/

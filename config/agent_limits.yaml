@@ -1,0 +1,12 @@
+# Agent Execution Limits
+# These guardrails prevent runaway agent execution.
+
+# Maximum number of ReAct loop iterations
+max_steps: 6
+
+# Maximum execution time in seconds
+timeout: 90
+
+# Notes:
+# - max_steps: Agent stops after this many Thought→Action→Observation cycles
+# - timeout: Wall-clock time limit for entire agent run

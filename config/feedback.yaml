@@ -1,0 +1,18 @@
+# Feedback Loop Configuration
+# Controls how user relevance signals affect digest prioritization
+
+# Feedback mode: relevant_only (v3 only captures "Relevant" clicks)
+mode: relevant_only
+
+# Memory type: historical (persists across sessions)
+memory: historical
+
+# Scope: per_person (each user has their own relevance history)
+scope: per_person
+
+# Boost settings for prioritization
+boost:
+  # Points added per "Relevant" click on same item_id
+  per_click: 0.5
+  # Maximum total boost from relevance (caps accumulated boost)
+  max_boost: 1.5

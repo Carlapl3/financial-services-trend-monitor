@@ -1,0 +1,31 @@
+# Core dependencies
+openai>=1.0.0
+firecrawl-py>=0.0.5
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+instructor>=1.0.0
+tenacity>=8.0.0
+requests>=2.31.0
+feedparser>=6.0.0
+
+# Optional (for enhanced output formatting)
+rich>=13.0.0
+# termcolor>=2.0.0  # Alternative to rich
+
+# Email delivery
+# Uncomment based on provider choice:
+# sendgrid>=6.11.0  # For SendGrid
+# boto3>=1.34.0     # For AWS SES
+
+# Optional scraping tools
+# playwright>=1.40.0        # For tough sites
+# llama-parse>=0.4.0        # For PDF parsing
+
+# Feedback server
+fastapi>=0.100.0
+uvicorn>=0.23.0
+httpx>=0.27.0
+
+# Development/Testing (optional)
+# pytest>=7.4.0
+# pytest-cov>=4.1.0

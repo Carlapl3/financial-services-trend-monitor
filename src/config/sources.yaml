@@ -1,0 +1,69 @@
+# Financial Services Trend Monitoring - Source Configuration
+# 10 sources covering Payments and Regulatory topics
+
+sources:
+  # PAYMENTS SOURCES
+  - name: "Finextra - Payments"
+    url: "https://www.finextra.com/rss/channel.aspx?channel=payments"
+    type: rss
+    category: Payments
+    priority: must-have
+    notes: "Financial technology news with strong payments coverage (RSS feed)"
+
+  - name: "Payment Week"
+    url: "https://paymentweek.com"
+    type: html
+    category: Payments
+    priority: nice-to-have
+    notes: "Digital payments industry insights and trends"
+
+  - name: "ECB Digital Euro Updates"
+    url: "https://www.ecb.europa.eu/paym/digital_euro/html/index.en.html"
+    type: html
+    category: Payments
+    priority: must-have
+    notes: "Official European Central Bank digital euro program updates"
+
+  # REGULATORY SOURCES
+  - name: "EBA News & Press"
+    url: "https://eba.europa.eu/news-press/news/rss.xml"
+    type: rss
+    category: Regulatory
+    priority: must-have
+    notes: "European Banking Authority news and press releases (RSS feed)"
+
+  - name: "Finansinspektionen (Swedish FSA)"
+    url: "https://www.fi.se/en/published/news/rss"
+    type: rss
+    category: Regulatory
+    priority: must-have
+    notes: "Swedish Financial Supervisory Authority - news (RSS feed)"
+
+  - name: "BIS - Basel Committee Updates"
+    url: "https://www.bis.org/bcbs/index.htm"
+    type: html
+    category: Regulatory
+    priority: nice-to-have
+    notes: "Basel Committee on Banking Supervision - international standards"
+
+  # MIXED COVERAGE
+  - name: "European Payments Council News"
+    url: "https://www.europeanpaymentscouncil.eu/news-insights"
+    type: html
+    category: Payments
+    priority: nice-to-have
+    notes: "SEPA and pan-European payment scheme updates"
+
+  - name: "ESMA Publications"
+    url: "https://www.esma.europa.eu/press-news/esma-news"
+    type: html
+    category: Regulatory
+    priority: nice-to-have
+    notes: "European Securities and Markets Authority regulatory news"
+
+# Configuration notes:
+# - priority: "must-have" = critical sources to check every run
+# - priority: "nice-to-have" = supplementary sources, lower priority
+# - type: "html" = standard web page scraping
+# - type: "rss" = RSS/Atom feed (not yet implemented)
+# - type: "pdf" = PDF documents (requires LlamaParse)

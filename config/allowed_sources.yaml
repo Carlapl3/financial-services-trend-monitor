@@ -1,0 +1,21 @@
+# Agent Whitelist - Allowed Source Domains
+# The agent can only scrape URLs matching these domains.
+# This prevents the agent from accessing arbitrary URLs.
+
+allowed_sources:
+  # Payments sources
+  - finextra.com
+  - paymentweek.com
+  - ecb.europa.eu
+  - europeanpaymentscouncil.eu
+
+  # Regulatory sources
+  - eba.europa.eu
+  - fi.se
+  - bis.org
+  - esma.europa.eu
+
+# Notes:
+# - Domain matching is case-insensitive
+# - Subdomains are automatically included (e.g., "ecb.europa.eu" matches "www.ecb.europa.eu")
+# - Add new domains here before the agent can scrape them
