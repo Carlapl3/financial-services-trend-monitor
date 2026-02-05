@@ -1,57 +1,76 @@
 # Financial Services Trend Monitor
 
-An agentic AI system that monitors financial services sources (regulatory bodies, payments industry), extracts structured intelligence via LLM, and delivers prioritized digests. Recipients can mark items as relevant, creating a feedback loop that improves future ranking.
+> Agentic AI system that converts regulatory and fintech signals into prioritized executive briefings.
+
+---
+
+## Overview
+
+Monitors financial services intelligence sources — regulatory bodies and payments infrastructure — and converts unstructured developments into prioritized strategic briefings.
+
+Designed to demonstrate how agentic architectures can reduce research latency and improve signal prioritization in advisory and financial services environments.
+
+---
 
 ## Architecture
 
-- **ReAct agent** — LLM-driven reasoning loop that dynamically selects tools each step, with step-limit and timeout guardrails (`config/agent_limits.yaml`)
-- **Deterministic pipeline** — collect → extract → dedupe → digest, each stage single-responsibility and independently runnable
-- **Two-tier deduplication** — normalized URL matching + title-date content hashing, with tracking-parameter stripping
-- **Feedback loop** — "Relevant" clicks in digest emails feed back into a per-recipient relevance store; boosted items rank higher in subsequent digests
-- **HIGH-impact alerting** — scans for critical items within a configurable lookback window and sends immediate email alerts
+![Architecture diagram](docs/architecture.svg)
 
-## Quickstart
+Hybrid system combining deterministic processing with agentic orchestration.
 
-### Prerequisites
+**Deterministic pipeline**  
+Sources → Collection → LLM Extraction → Deduplication → Digest → Email
 
-```
-pip install -r requirements.txt
-```
+**Agent controller (ReAct)**  
+Dynamically orchestrates pipeline tools:
 
-Copy `.env.example` to `.env` and set at minimum:
+- `scrape_source` → Collection  
+- `analyze_impact` → Extraction  
+- `check_dupes` → Storage  
+- `render_digest` → Digest  
 
-```
-OPENAI_API_KEY=...
-FIRECRAWL_API_KEY=...
-SMTP_HOST=...
-SMTP_PORT=587
-SMTP_USER=...
-SMTP_PASSWORD=...
-EMAIL_FROM=...
-EMAIL_TO=...
-```
+**Feedback loop**  
+Recipient relevance signals feed back into future ranking.
 
-### Run
+---
 
-```bash
-# Collect from all configured sources, extract trend items, store with dedup
-python -m src.scheduler.cron_entrypoints collect
+## Key Design Decisions
 
-# Generate a digest from the last 7 days (--dry-run skips email delivery)
-python -m src.scheduler.cron_entrypoints digest --days 7 --dry-run
+- Hybrid agent + pipeline architecture  
+- Structured LLM extraction (typed schemas)  
+- Two-tier deduplication (URL normalization + content hash)  
+- Append-only storage for auditability  
+- Feedback-weighted ranking  
+- Constrained agent action space  
 
-# Alert on HIGH-impact items from the last 24 hours
-python -m src.scheduler.cron_entrypoints alert --hours 24
-```
+---
 
-### Tests
+## Guardrails & Safety
 
-```bash
-python -m pytest tests/ -q
-```
+- Agent step + timeout limits  
+- Source domain allowlist enforcement  
+- PII-safe feedback logging  
+- Idempotent relevance storage  
+- Environment-based secret handling  
 
-## Examples
+---
 
-- [`examples/agent-execution-trace.md`](examples/agent-execution-trace.md) — ReAct loop decision flow
-- [`examples/relevant-feedback-behavior.md`](examples/relevant-feedback-behavior.md) — feedback loop walkthrough
-- [`examples/example-run.md`](examples/example-run.md) — CLI command reference
+## Tech Stack
+
+**LLM / Agent**  
+OpenAI · ReAct controller  
+
+**Backend**  
+Python · FastAPI  
+
+**Data**  
+Pydantic · JSONL storage  
+
+**Collection**  
+Firecrawl · RSS ingestion  
+
+**Delivery**  
+SMTP email  
+
+**Testing**  
+pytest (agent + pipeline + feedback)
