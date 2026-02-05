@@ -1,4 +1,4 @@
-# Agent Whitelist - Allowed Source Domains
+# Agent allowlist - Allowed Source Domains
 # The agent can only scrape URLs matching these domains.
 # This prevents the agent from accessing arbitrary URLs.
 
