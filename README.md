@@ -74,3 +74,11 @@ SMTP email
 
 **Testing**  
 pytest (agent + pipeline + feedback)
+
+## Repository Structure
+
+- `docs/`: — Architecture diagrams and design documentation  
+- `src/`: — Pipeline, agent, feedback server, email delivery  
+- `config/`: — Agent limits, source allowlist, feedback tuning  
+- `examples/`: — Execution traces and behavior walkthroughs  
+- `tests/`: — Unit and E2E tests (agent, pipeline, feedback)
