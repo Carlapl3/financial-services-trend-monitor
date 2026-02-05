@@ -1,14 +1,14 @@
 # Financial Services Trend Monitor
 
-> Agentic AI system that converts regulatory and fintech signals into prioritized executive briefings.
+> Agentic AI system that converts regulatory and fintech developments into prioritized executive briefings.
 
 ---
 
 ## Overview
 
-Monitors financial services intelligence sources — regulatory bodies and payments infrastructure — and converts unstructured developments into prioritized strategic briefings.
+Monitors regulatory and payments-related developments in financial services and transforms unstructured information into prioritized executive briefings.
 
-Designed to demonstrate how agentic architectures can reduce research latency and improve signal prioritization in advisory and financial services environments.
+Designed to showcase how agentic system design can shorten research cycles and support faster, higher-quality decision-making in advisory and financial services contexts.
 
 ---
 
@@ -58,7 +58,7 @@ Recipient relevance signals feed back into future ranking.
 ## Tech Stack
 
 **LLM / Agent**  
-OpenAI · ReAct controller  
+OpenAI · Instructor · ReAct controller
 
 **Backend**  
 Python · FastAPI  
