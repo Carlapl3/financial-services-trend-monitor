@@ -75,6 +75,8 @@ SMTP email
 **Testing**  
 pytest (agent + pipeline + feedback)
 
+---
+
 ## Repository Structure
 
 - `docs/`: — Architecture diagrams and design documentation  
